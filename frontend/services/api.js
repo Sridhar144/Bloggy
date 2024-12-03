@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8000';
+const API_URL = 'https://bloggysite-afgghebehdfca3c7.westindia-01.azurewebsites.net/';
 
 const api = axios.create({
   baseURL: API_URL,
