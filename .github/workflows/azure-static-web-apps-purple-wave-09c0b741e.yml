@@ -1,0 +1,69 @@
+name: Azure Static Web Apps CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - main
+
+jobs:
+  build_and_deploy_job:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    runs-on: ubuntu-latest
+    name: Build and Deploy Job
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+          lfs: false
+
+      # Check contents of the repo to verify structure
+      - name: Check Repo Structure
+        run: ls -R
+
+      # Clean npm cache to avoid any potential conflicts
+      - name: Clean npm cache
+        run: npm cache clean --force
+
+      # Install dependencies with legacy-peer-deps (explicitly adding it here)
+      - name: Install dependencies with legacy-peer-deps
+        run: |
+          cd frontend
+          npm install --legacy-peer-deps
+
+      # Build the frontend app (make sure to set the correct build command in your package.json)
+      - name: Build app
+        run: npm run build
+        working-directory: ./frontend
+
+      # Check contents of the repo to verify structure
+      - name: Check Repo Structure
+        run: ls -R
+
+      # Deploy to Azure Static Web Apps (skipping npm install during this deployment)
+      - name: Deploy to Azure Static Web Apps
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_PURPLE_WAVE_09C0B741E }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
+          action: "upload"
+          app_location: "./frontend" # App source code path (adjust if needed)
+          api_location: "" # API source code path (optional)
+          output_location: "./frontend/.next" # Correct output directory for Next.js (instead of ./frontend/build)
+          skip_app_build: false # Don't skip app build as we've already built it manually
+          skip_api_build: true # Skip API build, since no API is being deployed here
+
+  close_pull_request_job:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    name: Close Pull Request Job
+    steps:
+      - name: Close Pull Request
+        id: closepullrequest
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_PURPLE_WAVE_09C0B741E }}
+          action: "close"
