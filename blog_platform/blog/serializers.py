@@ -23,8 +23,7 @@ class PostSerializer(serializers.ModelSerializer):
 
         # Example usage
         prefix = "summarize: "
-        input_text = "Your input text here."
-        input_ids = tokenizer.encode(prefix + input_text, return_tensors="pt")
+        input_ids = tokenizer.encode(prefix + content, return_tensors="pt")
         summary_ids = model.generate(input_ids)
         summarize = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
 

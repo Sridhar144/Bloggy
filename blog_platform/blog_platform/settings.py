@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', get_random_secret_key())
 DEBUG = True
 
 ALLOWED_HOSTS = [
-'bloggysite-afgghebehdfca3c7.westindia-01.azurewebsites.net', '127.0.0.1']
+'bloggysite-afgghebehdfca3c7.westindia-01.azurewebsites.net', '127.0.0.1', 'localhost']
 
 
 # Application definition
