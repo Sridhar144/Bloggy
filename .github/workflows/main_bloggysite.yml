@@ -29,6 +29,8 @@ jobs:
       
       - name: CD into
         run: cd blog_platform
+      - name: check
+        run: ls
       - name: Install dependencies
         run: pip install -r requirements.txt
         
