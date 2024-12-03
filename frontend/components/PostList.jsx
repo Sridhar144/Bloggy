@@ -14,8 +14,9 @@ const PostList = () => {
     <div>
       {posts.map((post) => (
         <div key={post.id} className="border p-4 mb-4">
-          <h2 className="text-xl">{post.title}</h2>
-          <p>{post.content}</p>
+          <h2 className="text-xl">Title: {post.title}</h2>
+          <h3 className="text-l">Summarizer LLM: {post.summarize}</h3>
+          <p>Content: {post.content}</p>
           <small>By {post.author}</small>
         </div>
       ))}
