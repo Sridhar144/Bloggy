@@ -35,7 +35,6 @@ This project is a **Django-based blog platform** that enables users to create an
 
 1. **Clone the Repository**
 
-git clone https://github.com/yourusername/django-blog-platform.git cd django-blog-platform
 
 2. **Install Backend Dependencies**
 
