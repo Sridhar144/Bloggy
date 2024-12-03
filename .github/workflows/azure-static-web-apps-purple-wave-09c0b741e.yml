@@ -36,7 +36,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
           action: "upload"
           app_location: "./frontend" # App source code path
-          output_location: "./frontend/.next" # Built app content directory
+          output_location: "./frontend/build" # Built app content directory
           api_location: "" # API source code path - optional
           
   close_pull_request_job:
