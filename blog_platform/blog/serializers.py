@@ -14,6 +14,7 @@ class PostSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         content = validated_data.get("content", "")
+        
 
         model_name = "KipperDev/t5_summarizer_model"
 
