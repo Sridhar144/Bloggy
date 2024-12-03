@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-#d2oy702n3_73%d01b%c=b!p!ds$-x%+611_wiquf=@0^ue778
 DEBUG = True
 
 ALLOWED_HOSTS = [
-'bloggysite-afgghebehdfca3c7.canadacentral-01.azurewebsites.net', '127.0.0.1:8000']
+'bloggysite-afgghebehdfca3c7.westindia-01.azurewebsites.net', '127.0.0.1:8000']
 
 
 # Application definition
