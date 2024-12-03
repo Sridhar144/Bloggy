@@ -1,0 +1,17 @@
+Django>=4.0,<5.0
+djangorestframework>=3.14.0
+
+# CORS headers to handle cross-origin requests
+django-cors-headers>=4.0.0
+
+# PostgreSQL (adjust or remove if using SQLite or another DB)
+psycopg2-binary>=2.9.0
+
+# Hugging Face Transformers for free LLM integration
+transformers>=4.32.0
+torch>=2.0.0  # Required for models using PyTorch backend
+
+# HTTP Requests for interacting with APIs
+requests>=2.31.0
+mysqlclient>=2.1.0
+
