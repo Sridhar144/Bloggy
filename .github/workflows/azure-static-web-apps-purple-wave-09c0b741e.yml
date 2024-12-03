@@ -52,7 +52,7 @@ jobs:
           action: "upload"
           app_location: "./frontend" # App source code path (adjust if needed)
           api_location: "" # API source code path (optional)
-          output_location: "./frontend/.next" # Correct output directory for Next.js (instead of ./frontend/build)
+          output_location: "" # Correct output directory for Next.js (instead of ./frontend/build)
           skip_app_build: false # Don't skip app build as we've already built it manually
           skip_api_build: true # Skip API build, since no API is being deployed here
 
