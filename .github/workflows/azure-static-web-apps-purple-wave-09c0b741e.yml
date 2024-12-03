@@ -27,6 +27,7 @@ jobs:
         run: |
           cd frontend
           npm run build
+          ls -R
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
