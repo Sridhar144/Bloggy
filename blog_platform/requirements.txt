@@ -5,6 +5,7 @@ djangorestframework>=3.14.0
 django-cors-headers>=4.0.0
 
 # PostgreSQL (adjust or remove if using SQLite or another DB)
+gunicorn
 psycopg2-binary>=2.9.0
 
 # Hugging Face Transformers for free LLM integration
