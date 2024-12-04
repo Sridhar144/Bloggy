@@ -151,8 +151,8 @@ REST_FRAMEWORK = {
 CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",    "https://bloggysite-afgghebehdfca3c7.westindia-01.azurewebsites.net",  # Add deployed URL if needed
-
+    'http://localhost:3000',
+    'https://purple-wave-09c0b741e.4.azurestaticapps.net',
 ]
 
 STATIC_URL = 'static/'
